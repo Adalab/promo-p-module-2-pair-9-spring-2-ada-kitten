@@ -93,10 +93,20 @@ function addNewKitten(event) {
     desc: 'valueDesc',
     race: 'valueRace',
   };
-  if (valueDesc === '' && valuePhoto === '' && valueName === '') {
+  if (
+    valueDesc === '' &&
+    valuePhoto === '' &&
+    valueName === '' &&
+    valueRace === '' &&
+  ) {
     labelMesageError.innerHTML = 'Debe rellenar todos los valores';
   } else {
-    if (valueDesc !== '' && valuePhoto !== '' && valueName !== '') {
+    if (
+      valueDesc !== '' &&
+      valuePhoto !== '' &&
+      valueName !== '' &&
+      valueName !== '' &&
+    ) {
       labelMesageError.innerHTML = '';
     }
   }
