@@ -6,15 +6,13 @@ const input_search_desc = document.querySelector('.js_in_search_desc');
 input_search_desc.value = 'risueño';
 const descrSearchText = input_search_desc.value;
 
-
-const kittenImageOne = "https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg";
-const kittenNameOne = "Anastacio";
+const kittenImageOne = 'https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg';
+const kittenNameOne = 'Anastacio';
 const kittenDescOne =
-  "Ruiseño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!";
-const kittenRaceOne = "British Shorthair"
+  'Ruiseño, juguetón, le gusta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!';
+const kittenRaceOne = 'British Shorthair';
 
-const kittenOne =
-  `<li class="card">
+const kittenOne = `<li class="card">
 <article>
   <img
     class="card_img"
@@ -29,14 +27,14 @@ const kittenOne =
 </article>
 </li>`;
 
-const kittenImageTwo = "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2019_39/3021711/190923-cat-pet-stock-cs-1052a.jpg";
-const kittenNameTwo = "Cielo";
+const kittenImageTwo =
+  'https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2019_39/3021711/190923-cat-pet-stock-cs-1052a.jpg';
+const kittenNameTwo = 'Cielo';
 const kittenDescTwo =
-  "Ruiseño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!";
-const kittenRaceTwo = "British Shorthair"
+  'Ruiseño, juguetón, le gusta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!';
+const kittenRaceTwo = 'British Shorthair';
 
-const kittenTwo =
-  `<li class="card">
+const kittenTwo = `<li class="card">
 <article>
   <img
     class="card_img"
@@ -51,14 +49,14 @@ const kittenTwo =
 </article>
 </li>`;
 
-const kittenImageThree = "https://images.emedicinehealth.com/images/article/main_image/cat-scratch-disease.jpg";
-const kittenNameThree = "Fiona";
+const kittenImageThree =
+  'https://images.emedicinehealth.com/images/article/main_image/cat-scratch-disease.jpg';
+const kittenNameThree = 'Fiona';
 const kittenDescThree =
-  "Ruiseño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!";
-const kittenRaceThree = "British Shorthair"
+  'Ruiseño, juguetón, le guta estar tranquilo y que nadie le moleste. Es una maravilla acariciarle!';
+const kittenRaceThree = 'British Shorthair';
 
-const kittenThree =
-  `<li class="card">
+const kittenThree = `<li class="card">
 <article>
   <img
     class="card_img"
@@ -73,13 +71,11 @@ const kittenThree =
 </article>
 </li>`;
 
-
 if (kittenDesc1.includes(descrSearchText)) {
   listElement.innerHTML += kittenOne;
 }
 if (kittenDesc2.includes(descrSearchText)) {
   listElement.innerHTML += kittenTwo;
-
 }
 if (kittenDesc3.includes(descrSearchText)) {
   listElement.innerHTML += kittenThree;
@@ -89,18 +85,8 @@ if (kittenDesc3.includes(descrSearchText)) {
 /* Elementos que usamos en el HTML */
 const newFormElement = document.querySelector('.js-new-form');
 
-if (newFormElement.classList.contains("collapsed")) {
+if (newFormElement.classList.contains('collapsed')) {
   newFormElement.classList.remove('collapsed');
 } else {
-  newFormElement.classList.add("collapsed");
+  newFormElement.classList.add('collapsed');
 }
-
-
-
-
-
-
-
-
-
-
