@@ -1,6 +1,6 @@
 'use strict';
 
-/* Elements from HTML */
+/* Elementos que usamos en el HTML */
 const newFormElement = document.querySelector('.js-new-form');
 const listElement = document.querySelector('.js-list');
 const searchButton = document.querySelector('.js-button-search');
@@ -9,11 +9,12 @@ const buttonCancelForm = document.querySelector('.js-btn-cancel');
 const inputDesc = document.querySelector('.js-input-desc');
 const inputPhoto = document.querySelector('.js-input-photo');
 const inputName = document.querySelector('.js-input-name');
+const inputRace = document.querySelector('.js-input-race');
 const linkNewFormElememt = document.querySelector('.js-button-new-form');
 const labelMesageError = document.querySelector('.js-label-error');
 const input_search_desc = document.querySelector('.js_in_search_desc');
 
-//Objects from Kittens
+//Objetos con cada gatito
 const kittenData_1 = {
   image: 'https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg',
   name: 'Anastacio',
@@ -37,13 +38,14 @@ const kittenData_3 = {
 
 const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
 
-//Funtions
+//Funciones
 function renderKitten(kittenData) {
   const kitten = `<li class="card">
     <article>
       <img
         class="card_img"
         src=${kittenData.image}
+        alt="gatito"
       />
       <h3 class="card_title">${kittenData.name}</h3>
       <h3 class="card_race">${kittenData.race}</h3>
@@ -62,7 +64,7 @@ function renderKittenList(kittenDataList) {
   }
 }
 
-//Show/hide the form
+//Mostrar/ocultar el formulario
 function showNewCatForm() {
   newFormElement.classList.remove('collapsed');
 }
@@ -78,7 +80,7 @@ function handleClickNewCatForm(event) {
     hideNewCatForm();
   }
 }
-// Add new kitten
+//Adicionar nuevo gatito
 function addNewKitten(event) {
   event.preventDefault();
   const valueDesc = inputDesc.value;
@@ -87,11 +89,12 @@ function addNewKitten(event) {
   if (valueDesc === '' || valuePhoto === '' || valueName === '') {
     labelMesageError.innerHTML = 'Debe rellenar todos los valores';
   } else {
-    labelMesageError.innerHTML = '';
+    if (valueDesc !== '' || valuePhoto !== '' || valueName !== '') {
+      labelMesageError.innerHTML = '¡Yihiii un nuevo gatito adalabero!';
+    }
   }
 }
-
-//Cancel the search for a kitten
+//Cancelar la búsqueda de un gatito
 function cancelNewKitten(event) {
   event.preventDefault();
   newFormElement.classList.add('collapsed');
@@ -100,116 +103,23 @@ function cancelNewKitten(event) {
   inputName.value = '';
 }
 
-// //Filter by description
-// function filterKitten(event) {
-//   event.preventDefault();
-//   const descrSearchText = input_search_desc.value;
-//   listElement.innerHTML = '';
-//   for (const kittenItem of kittenDataList) {
-//     if (kittenItem.desc.includes(descrSearchText)) {
-//       listElement.innerHTML += renderKitten(kittenItem);
-//     }
-//   }
-// }
-//Show kitty list in HTML
-renderKittenList(kittenDataList);
-
-//Events
-linkNewFormElememt.addEventListener('click', handleClickNewCatForm);
-// searchButton.addEventListener('click', filterKitten);
-buttonAdd.addEventListener('click', addNewKitten);
-buttonCancelForm.addEventListener('click', cancelNewKitten);
-
-console.log('hola');
-
-//  const buttonAdd = document.querySelector(".js-btn-add");
-//  const inputDesc = document.querySelector(".js-input-desc");
-//  const inputPhoto = document.querySelector(".js-input-photo");
-//  const inputName = document.querySelector(".js-input-name");
-const inputRace = document.querySelector('.js-input-race');
-//  const labelMesageError = document.querySelector(".js-label-error");
-
-// copiado de part-7
-//  const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
-
-//Add new kitten
-function addNewKitten(event) {
-  event.preventDefault();
-  const valueDesc = inputDesc.value;
-  const valuePhoto = inputPhoto.value;
-  const valueName = inputName.value;
-  const valueRace = inputRace.value;
-  if (
-    valueDesc === '' ||
-    valuePhoto === '' ||
-    valueName === '' ||
-    valueRace === ''
-  ) {
-    labelMesageError.innerHTML = 'Debe rellenar todos los valores';
-    console.log('hello1');
-  } else if (
-    valueDesc !== '' ||
-    valuePhoto !== '' ||
-    valueName !== '' ||
-    valueRace !== ''
-  ) {
-    labelMesageError.innerHTML = 'Mola! Un nuevo gatito en Adalab!';
-    console.log('hello2');
-  }
-
-  // faltaría borrar valores
-
-  const newKittenDataObject = {
-    image: valuePhoto,
-    name: valueName,
-    desc: valueDesc,
-    race: valueRace,
-  };
-
-  kittenDataList.push(newKittenDataObject);
-
-  renderKittenList(kittenDataList);
-}
-
-// compruebo que el nuevo objeto se ha añadido al array
-
-buttonAdd.addEventListener('click', addNewKitten);
-
-///
-
-//Filter by description
-// function filterKitten(event) {
-//   event.preventDefault();
-//   const descrSearchText = input_search_desc.value;
-//   listElement.innerHTML = '';
-//   for (const kittenItem of kittenDataList) {
-//     if (kittenItem.desc.includes(descrSearchText)) {
-//       listElement.innerHTML += renderKitten(kittenItem);
-//     }
-//   }
-// }
-debugger;
-// nueva
+//Filtrar por descripción
 function filterKitten(event) {
   event.preventDefault();
   const descrSearchText = input_search_desc.value;
-  const kittensFiltered = kittenDataList.filter((kitten) =>
-    kitten.desc.toLowerCase().includes(descrSearchText)
-  );
-
   listElement.innerHTML = '';
-  for (const li of kittensFiltered) {
-    listElement.innerHTML += renderKitten(kittenItem);
+  for (const kittenItem of kittenDataList) {
+    if (kittenItem.desc.includes(descrSearchText)) {
+      listElement.innerHTML += renderKitten(kittenItem);
+    }
   }
 }
 
-// function handleInput() {
-//   const inputValue = inputElement.value;
-//   const listFiltered = adalabers.filter((persona) =>
-//     persona.name.toLowerCase().includes(inputValue)
-//   );
-//   // tenemos variables locales, vorem.
-//   paintList(listFiltered);
-// }
+//Mostrar el litado de gatitos en ell HTML
+renderKittenList(kittenDataList);
 
+//Eventos
+linkNewFormElememt.addEventListener('click', handleClickNewCatForm);
 searchButton.addEventListener('click', filterKitten);
+buttonAdd.addEventListener('click', addNewKitten);
+buttonCancelForm.addEventListener('click', cancelNewKitten);

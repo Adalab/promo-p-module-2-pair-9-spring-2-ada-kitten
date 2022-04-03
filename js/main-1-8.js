@@ -5,26 +5,17 @@ function addNewKitten(event) {
   const valueDesc = inputDesc.value;
   const valuePhoto = inputPhoto.value;
   const valueName = inputName.value;
-  const valueRace = inputRace.value;
-  if (
-    valueDesc === '' ||
-    valuePhoto === '' ||
-    valueName === '' ||
-    valueRace === ''
-  ) {
+  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
     labelMesageError.innerHTML = 'Debe rellenar todos los valores';
-  } else if (
-    valueDesc !== '' ||
-    valuePhoto !== '' ||
-    valueName !== '' ||
-    valueRace !== ''
-  ) {
-    labelMesageError.innerHTML = 'Nuevo gatito adalabalero!';
+  } else {
+    if (valueDesc !== '' || valuePhoto !== '' || valueName !== '') {
+      labelMesageError.innerHTML = '¡Yihiii un nuevo gatito adalabero!';
+    }
   }
-
-  kittenDataList.push(newKittenDataObject);
+}
+/*kittenDataList.push(newKittenDataObject);
 
   renderKittenList(kittenDataList);
-}
+}*/
 
 buttonAdd.addEventListener('click', addNewKitten);
