@@ -12,10 +12,17 @@ function addNewKitten(event) {
       labelMesageError.innerHTML = '¡Yihiii un nuevo gatito adalabero!';
     }
   }
-}
-/*kittenDataList.push(newKittenDataObject);
+
+  const newKittenDataObject = {
+    image: valuePhoto,
+    name: valueName,
+    desc: valueDesc,
+    race: valueRace,
+  };
+
+  kittenDataList.push(newKittenDataObject);
 
   renderKittenList(kittenDataList);
-}*/
+}
 
 buttonAdd.addEventListener('click', addNewKitten);

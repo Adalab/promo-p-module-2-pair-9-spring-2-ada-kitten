@@ -86,6 +86,7 @@ function addNewKitten(event) {
   const valueDesc = inputDesc.value;
   const valuePhoto = inputPhoto.value;
   const valueName = inputName.value;
+  const valueRace = inputRace.value;
   if (valueDesc === '' || valuePhoto === '' || valueName === '') {
     labelMesageError.innerHTML = 'Debe rellenar todos los valores';
   } else {
@@ -93,6 +94,17 @@ function addNewKitten(event) {
       labelMesageError.innerHTML = '¡Yihiii un nuevo gatito adalabero!';
     }
   }
+
+  const newKittenDataObject = {
+    image: valuePhoto,
+    name: valueName,
+    desc: valueDesc,
+    race: valueRace,
+  };
+
+  kittenDataList.push(newKittenDataObject);
+
+  renderKittenList(kittenDataList);
 }
 //Cancelar la búsqueda de un gatito
 function cancelNewKitten(event) {
@@ -119,6 +131,7 @@ function filterKitten(event) {
 renderKittenList(kittenDataList);
 
 //Eventos
+buttonAdd.addEventListener('click', addNewKitten);
 linkNewFormElememt.addEventListener('click', handleClickNewCatForm);
 searchButton.addEventListener('click', filterKitten);
 buttonAdd.addEventListener('click', addNewKitten);
